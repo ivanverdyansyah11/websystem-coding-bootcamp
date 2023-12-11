@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title', 255);
             $table->bigInteger('authors_id')->index();
             $table->bigInteger('categories_id')->index();
-            $table->string('ISBN', 20);
             $table->string('genre', 50);
             $table->string('publisher', 100);
             $table->string('language', 50);

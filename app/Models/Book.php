@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function category() 
+    {
+        return $this->belongsTo(Category::class, 'categories_id');
+    }
+
+    public function author() 
+    {
+        return $this->belongsTo(Author::class, 'authors_id');
+    }
 }

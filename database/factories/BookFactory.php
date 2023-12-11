@@ -21,15 +21,18 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
-            'authors_id' => fake()->numberBetween(1, 1000),
-            'categories_id' => fake()->numberBetween(1, 3000),
-            'ISBN' => fake()->isbn13(),
-            'genre' => fake()->word(),
-            'publisher' => fake()->company(),
-            'language' => fake()->languageCode(),
-            'total_pages' => fake()->numberBetween(100, 1000),
-            'available_copies' => fake()->numberBetween(1, 100),
+            'title' => fake()->sentence(3),
+            'authors_id' => function () {
+                return Author::inRandomOrder()->first()->id;
+            },
+            'categories_id' => function () {
+                return Category::inRandomOrder()->first()->id;
+            },
+            'genre' => fake()->sentence(2),
+            'publisher' => fake()->dateTime(),
+            'language' => fake()->timezone(),
+            'total_pages' => fake()->numberBetween(100, 500),
+            'available_copies' => fake()->numberBetween(1, 50),
         ];
     }
 }

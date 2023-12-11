@@ -24,27 +24,30 @@
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">Genre</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    @foreach ($books as $i =>$book)
+                        <tr>
+                            <th>{{ $i + 1 }}</th>
+                            <td>{{ $book->title }}</td>
+                            <td>{{ $book->category->name }}</td>
+                            <td>{{ $book->author->username }}</td>
+                            <td>{{ $book->genre }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-end mt-4">
+            {{ $books->links() }}
         </div>
     </div>
 @endsection

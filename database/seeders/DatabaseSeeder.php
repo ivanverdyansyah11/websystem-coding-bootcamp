@@ -11,17 +11,10 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
-        // \App\Models\Author::factory(1000)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        
+    {        
         $this->call(AuthorSeeder::class);
-        $this->call(BookSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(RatingSeeder::class);
+        $this->call(BookSeeder::class);
     }
 }

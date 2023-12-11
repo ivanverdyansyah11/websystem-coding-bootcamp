@@ -22,7 +22,7 @@ class AuthorFactory extends Factory
         return [
             'username' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make(fake()->password()),
         ];
     }
 }

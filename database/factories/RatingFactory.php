@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Author as Author;
-use App\Models\Book as Book;
+use Faker\Generator as Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Rating>
@@ -16,10 +16,12 @@ class RatingFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'books_id' => fake()->numberBetween(1, 100000),
+            'authors_id' => function () {
+                return Author::inRandomOrder()->first()->id;
+            },
             'rating' => fake()->numberBetween(1, 10),
         ];
     }
