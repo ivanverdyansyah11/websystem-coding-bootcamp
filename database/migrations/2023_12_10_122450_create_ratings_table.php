@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('books_id')->index();
+            $table->integer('rating');
             $table->timestamps();
         });
     }

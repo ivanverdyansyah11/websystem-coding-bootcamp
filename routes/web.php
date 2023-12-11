@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\MostFamousController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::fallback(function () {
-    return redirect('/login');
+    return redirect('/books');
 });
 
-Route::middleware('guest')->group(function () {
-    Route::controller(LoginController::class)->group(function () {
-        Route::get('/login', 'index')->name('login.index');
-        Route::post('/login', 'login')->name('login.authentication');
-    });
+Route::controller(BookController::class)->group(function () {
+    Route::get('/books', 'index')->name('books');
+});
 
-    Route::controller(RegisterController::class)->group(function () {
-        Route::get('/register', 'index')->name('register.index');
-        Route::post('/register', 'register')->name('register.registering');
-    });
+Route::controller(MostFamousController::class)->group(function () {
+    Route::get('/most-famous-author', 'index')->name('famous-author');
 });
