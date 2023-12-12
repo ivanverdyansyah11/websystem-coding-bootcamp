@@ -22,6 +22,7 @@ Route::fallback(function () {
 
 Route::controller(BookController::class)->group(function () {
     Route::get('/books', 'index')->name('books');
+    // Route::get('/books', 'search')->name('books.search');
 });
 
 Route::controller(MostFamousController::class)->group(function () {
