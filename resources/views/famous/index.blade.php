@@ -11,25 +11,21 @@
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Total Rating</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+                    @foreach ($authors as $i => $author)
+                        <tr>
+                            <th>{{ $i + 1 }}</th>
+                            <td>{{ $author->username }}</td>
+                            <td>{{ $author->email }}</td>
+                            <td>{{ $author->total_rating }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

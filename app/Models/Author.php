@@ -15,9 +15,4 @@ class Author extends Model
     {
         return $this->hasMany(Book::class, 'id');
     }
-
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class, 'id');
-    }
 }

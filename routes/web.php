@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\MostFamousController;
+use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,10 @@ Route::controller(BookController::class)->group(function () {
 
 Route::controller(MostFamousController::class)->group(function () {
     Route::get('/most-famous-author', 'index')->name('famous-author');
+});
+
+Route::controller(RatingController::class)->group(function () {
+    Route::get('/rating', 'index')->name('rating');
+    Route::get('/rating/author/{id}', 'searchBook')->name('rating.search');
+    Route::post('/rating/store', 'store')->name('rating.store');
 });

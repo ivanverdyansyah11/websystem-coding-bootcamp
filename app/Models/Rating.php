@@ -11,8 +11,8 @@ class Rating extends Model
 
     protected $guarded = ['id'];
 
-    public function author() 
+    public function book() 
     {
-        return $this->belongsTo(Author::class, 'authors_id');
+        return $this->belongsTo(Book::class, 'id');
     }
 }
