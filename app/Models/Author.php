@@ -10,6 +10,7 @@ class Author extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $dateFormat = 'Y-m-d\TH:i:s.u\Z';
 
     public function books()
     {
